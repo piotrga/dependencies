@@ -1,4 +1,5 @@
 import com.sun.tools.classfile.Dependency
+import github.Github
 
 import java.nio.file.{Files, Path}
 import scala.concurrent.duration.Duration
@@ -40,7 +41,7 @@ object Pom {
                 None
               )
           })
-      ).map(x =>x.flatten)
+      ).map(_.flatten)
     }
 
   private def extractDependencies(doc: Elem, dependencyVersions: Map[(String, String), String] = Map()) = {
